@@ -1,0 +1,23 @@
+[project]
+name = "ai-project"
+version = "0.1"
+description = "Advanced topics in AI. Train 2 different models with 5 flods."
+authors = [
+    {name = "abdelhkam74"}
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pandas (>=3.0.6,<4.0.0)",
+    "numpy (>=2.5.4,<3.0.0)",
+    "skimpy (>=0.0.21,<0.0.22)",
+    "scipy (>=1.18.1,<2.0.0)",
+    "matplotlib (>=3.11.2,<4.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)",
+    "imbalanced-learn (>=0.14.2,<0.15.0)",
+    "scikit-learn (>=1.9.1,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

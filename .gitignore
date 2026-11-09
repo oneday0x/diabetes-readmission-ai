@@ -1,0 +1,16 @@
+# Dataset downloads and source files
+/data.zip
+/data/*.zip
+/data/diabetic_data.csv
+/data/IDS_mapping.csv
+
+# Course handouts
+/Experimentation.pdf
+/Projects to choose one.docx
+/Regulation_of_the_project.pdf
+
+# Local Python and Jupyter files
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
