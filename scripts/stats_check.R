@@ -4,7 +4,7 @@
 #        20 blocks (rows) and 3 models (columns).
 # Run from the folder that contains "matrices":  Rscript stats_check.R
 
-files  <- sort(list.files("matrices", pattern = "\\.csv$", full.names = TRUE))
+files  <- sort(list.files("results/experiment1/matrices", pattern = "\\.csv$", full.names = TRUE))
 pairs  <- list(c("LogReg", "GradBoost"),
                c("LogReg", "RandomForest"),
                c("GradBoost", "RandomForest"))
@@ -33,7 +33,7 @@ for (f in files) {
   results <- rbind(results, row)
 }
 
-write.csv(results, "friedman_wilcoxon_R.csv", row.names = FALSE)
+write.csv(results, "results/experiment1/friedman_wilcoxon_R.csv", row.names = FALSE)
 
 # Print the results with p-values in scientific notation
 shown <- results[, c("measure", "friedman_chi2", "friedman_p",
@@ -42,8 +42,8 @@ for (col in names(shown)[-1]) shown[[col]] <- formatC(shown[[col]], format = "e"
 print(shown, row.names = FALSE)
 
 # Compare with the Python results
-if (file.exists("friedman_wilcoxon_python.csv")) {
-  py <- read.csv("friedman_wilcoxon_python.csv", check.names = FALSE)
+if (file.exists("results/experiment1/friedman_wilcoxon_python.csv")) {
+  py <- read.csv("results/experiment1/friedman_wilcoxon_python.csv", check.names = FALSE)
   py <- py[match(results$measure, py$measure), ]
   cols <- setdiff(names(results), "measure")
   diffs <- sapply(cols, function(cn) max(abs(results[[cn]] - py[[cn]])))

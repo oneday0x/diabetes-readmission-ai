@@ -2,12 +2,12 @@ models <- c("LogReg", "EBM", "GradBoost", "RandomForest")
 measures <- c("auroc_macro","auprc_macro","f1_macro","ppv_macro","tpr_macro",
               "auroc_micro","auprc_micro","f1_micro","brier",
               "auroc_weighted","auprc_weighted","f1_weighted","ppv_micro","ppv_weighted","tpr_micro","tpr_weighted")
-py <- read.csv("experiment1/effect_sizes_ci_4models.csv")
-pyW <- read.csv("experiment1/kendalls_w_4models.csv")
+py <- read.csv("results/experiment1/effect_sizes_ci_4models.csv")
+pyW <- read.csv("results/experiment1/kendalls_w_4models.csv")
 set.seed(1)
 out <- list(); wout <- list()
 for (m in measures) {
-  M <- as.matrix(read.csv(paste0("experiment1/matrices4/", m, ".csv"))[, models])
+  M <- as.matrix(read.csv(paste0("results/experiment1/matrices4/", m, ".csv"))[, models])
   if (m == "brier") M <- -M
   # Kendall's W from the Friedman statistic: W = chi2 / (n * (k - 1))
   fr <- friedman.test(M)

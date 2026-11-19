@@ -5,7 +5,7 @@
 
 models <- c("LogReg", "EBM", "GradBoost", "RandomForest")
 pairs  <- combn(models, 2, simplify = FALSE)     # all 6 pairs
-files  <- sort(list.files("matrices4", pattern = "\\.csv$", full.names = TRUE))
+files  <- sort(list.files("results/experiment1/matrices4", pattern = "\\.csv$", full.names = TRUE))
 
 results <- data.frame()
 for (f in files) {
@@ -31,7 +31,7 @@ for (f in files) {
   results <- rbind(results, row)
 }
 
-write.csv(results, "friedman_wilcoxon_R_4models.csv", row.names = FALSE)
+write.csv(results, "results/experiment1/friedman_wilcoxon_R_4models.csv", row.names = FALSE)
 
 shown <- results[, c("measure", "friedman_chi2", "friedman_p",
                      grep("holm", names(results), value = TRUE))]
@@ -40,8 +40,8 @@ for (col in setdiff(names(shown), c("measure", "friedman_chi2")))
   shown[[col]] <- formatC(shown[[col]], format = "e", digits = 1)
 print(shown, row.names = FALSE)
 
-if (file.exists("friedman_wilcoxon_python_4models.csv")) {
-  py <- read.csv("friedman_wilcoxon_python_4models.csv", check.names = FALSE)
+if (file.exists("results/experiment1/friedman_wilcoxon_python_4models.csv")) {
+  py <- read.csv("results/experiment1/friedman_wilcoxon_python_4models.csv", check.names = FALSE)
   py <- py[match(results$measure, py$measure), ]
   cols <- setdiff(names(results), "measure")
   diffs <- sapply(cols, function(cn) max(abs(results[[cn]] - py[[cn]])))

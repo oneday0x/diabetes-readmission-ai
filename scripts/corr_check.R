@@ -1,4 +1,4 @@
-res <- read.csv("experiment1/multiple_correction_comparison_4models.csv")
+res <- read.csv("results/experiment1/multiple_correction_comparison_4models.csv")
 shaffer <- function(p) { o <- order(p); a <- cummax(c(6, 3, 3, 3, 2, 1) * p[o]); out <- numeric(6); out[o] <- pmin(1, a); out }
 finner <- function(p) { m <- length(p); o <- order(p); a <- cummax(1 - (1 - p[o])^(m / seq_len(m))); out <- numeric(m); out[o] <- pmin(1, a); out }
 # Bergmann-Hommel: the 14 sets of pair hypotheses that can be true together, written out by hand.

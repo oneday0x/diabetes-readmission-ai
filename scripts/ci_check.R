@@ -2,7 +2,7 @@ models <- c("LogReg", "EBM", "GradBoost", "RandomForest")
 measures <- c("auroc_macro","auprc_macro","f1_macro","ppv_macro","tpr_macro",
               "auroc_micro","auprc_micro","f1_micro","brier",
               "auroc_weighted","auprc_weighted","f1_weighted","ppv_micro","ppv_weighted","tpr_micro","tpr_weighted")
-raw <- read.csv("experiment1/results_measures_4models.csv")
+raw <- read.csv("results/experiment1/results_measures_4models.csv")
 raw <- raw[order(raw[[1]], raw[[2]]), ]
 K <- 5; Rr <- 20; n <- K * Rr; ratio <- 1 / (K - 1)
 ci <- function(x) {
@@ -11,8 +11,8 @@ ci <- function(x) {
   se_nb <- sqrt((1 / n + ratio) * var(x))
   c(mean(x), qt(0.975, Rr - 1) * se_naive, qt(0.975, n - 1) * se_nb)
 }
-pyM <- read.csv("experiment1/ci_models_4models.csv")
-pyD <- read.csv("experiment1/ci_differences_4models.csv")
+pyM <- read.csv("results/experiment1/ci_models_4models.csv")
+pyD <- read.csv("results/experiment1/ci_differences_4models.csv")
 dM <- c(); dD <- c(); flips <- 0
 for (m in measures) {
   sign <- ifelse(m == "brier", -1, 1)
