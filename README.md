@@ -45,6 +45,8 @@ Mean ± standard deviation over the 20 blocks:
 
 ![Violin plots of AUROC and AUPRC](results/experiment1/violin_auroc_auprc.png)
 
+![Calibration curves of the four models](results/experiment1/calibration_4models.png)
+
 Key points:
 
 - With 20 blocks the p-values are tiny, so statistical significance alone says little. The effect sizes matter: the best AUROC gap between the interpretable Logistic Regression and the best black box is about 0.011.
