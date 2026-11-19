@@ -1,0 +1,17 @@
+measure,kendalls_W
+auroc_macro,1.0
+auprc_macro,0.964
+f1_macro,0.964
+ppv_macro,0.925
+tpr_macro,0.877
+auroc_micro,1.0
+auprc_micro,0.901
+f1_micro,1.0
+brier,1.0
+auroc_weighted,1.0
+auprc_weighted,0.981
+f1_weighted,1.0
+ppv_micro,1.0
+ppv_weighted,1.0
+tpr_micro,1.0
+tpr_weighted,1.0
