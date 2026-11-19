@@ -45,6 +45,8 @@ Mean ± standard deviation over the 20 blocks:
 
 ![Violin plots of AUROC and AUPRC](results/experiment1/violin_auroc_auprc.png)
 
+![Violin plots of F1 and Brier score](results/experiment1/violin_f1_brier.png)
+
 ![Calibration curves of the four models](results/experiment1/calibration_4models.png)
 
 Key points:
